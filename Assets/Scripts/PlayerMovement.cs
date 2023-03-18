@@ -6,12 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float speed = 8f;
-    private float jumpingPower = 16f;
+    private float jumpingPower = 20f;
     private bool isFacingRight = true;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+
+    private int score = 0;
 
 
     // Start is called before the first frame update
@@ -53,4 +55,15 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Moneta") 
+        {
+            score += 100;
+            Debug.Log(score);
+            collision.gameObject.SetActive(false);
+        }
+    }
+
 }

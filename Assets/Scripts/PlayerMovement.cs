@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
+    public Animator animator;
+    AudioSource jumpsound;
     private float speed = 8f;
     private float jumpingPower = 20f;
     private bool isFacingRight = true;
@@ -19,20 +21,23 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
    private void Start()
     {
-        
+        jumpsound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
    private void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("speed", Mathf.Abs(horizontal));
         
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
+            jumpsound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
         if(Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
         {
+            jumpsound.Play();
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
         Flip();
@@ -47,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Flip()
     {
-        if(isFacingRight && horizontal < 0f || isFacingRight && horizontal > 0f)
+        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;

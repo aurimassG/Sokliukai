@@ -13,13 +13,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    public LogicScript Moneta;
+    public LogicScript logic;
 
     // Start is called before the first frame update
    private void Start()
     {
         jumpsound = GetComponent<AudioSource>();
-        Moneta = GameObject.FindGameObjectWithTag("Moneta").GetComponent<LogicScript>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.tag == "Moneta") 
         {
-            Moneta.addScore();
+            logic.addScore();
             collision.gameObject.SetActive(false);
         }
     }

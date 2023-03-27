@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
+    public int Respawn;
     public Animator animator;
     AudioSource jumpsound;
+    AudioSource fallofmapsound;
     private float speed = 8f;
     private float jumpingPower = 20f;
     private bool isFacingRight = true;
@@ -19,12 +22,19 @@ public class PlayerMovement : MonoBehaviour
    private void Start()
     {
         jumpsound = GetComponent<AudioSource>();
+        fallofmapsound = GetComponent<AudioSource>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     // Update is called once per frame
    private void Update()
     {
+
+        if (transform.position.y <= -60)
+        {
+            SceneManager.LoadScene(Respawn);
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("speed", Mathf.Abs(horizontal));
         

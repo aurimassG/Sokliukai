@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,9 +19,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     public LogicScript logic;
+    public GameObject Score;
+    public GameObject FScore;
 
     // Start is called before the first frame update
-   private void Start()
+    private void Start()
     {
         jumpsound = GetComponent<AudioSource>();
         fallofmapsound = GetComponent<AudioSource>();
@@ -76,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
             logic.addScore();
             collision.gameObject.SetActive(false);
         }
-    }
 
+        if (collision.tag == "Finish")
+        {
+            logic.computeScore();
+            Time.timeScale = 0;
+        }
+    }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Moneta
   - Logic
+  - Score
+  - FScore
   layers:
   - Default
   - TransparentFX

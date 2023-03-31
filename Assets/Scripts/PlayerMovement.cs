@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    public int Respawn;
     public Animator animator;
     AudioSource jumpsound;
     AudioSource fallofmapsound;
@@ -22,21 +21,26 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Score;
     public GameObject FScore;
 
+    private bool levelcomplete = false;
+
+
     // Start is called before the first frame update
     private void Start()
     {
+        Time.timeScale = 1;
         jumpsound = GetComponent<AudioSource>();
         fallofmapsound = GetComponent<AudioSource>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        logic.StartingScore();
     }
 
     // Update is called once per frame
-   private void Update()
+    public void Update()
     {
 
-        if (transform.position.y <= -60)
+        if (transform.position.y <= -20)
         {
-            SceneManager.LoadScene(Respawn);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -75,16 +79,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Moneta") 
+        if (collision.tag == "Moneta")
         {
             logic.addScore();
             collision.gameObject.SetActive(false);
         }
 
-        if (collision.tag == "Finish")
+        if (collision.tag == "Finish" && !levelcomplete)
         {
             logic.computeScore();
-            Time.timeScale = 0;
+            levelcomplete = true;
+            Invoke("LygisBaigtas", 3f);
         }
+    }
+
+    private void LygisBaigtas()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

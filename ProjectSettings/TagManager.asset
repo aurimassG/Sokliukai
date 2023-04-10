@@ -8,6 +8,8 @@ TagManager:
   - Logic
   - Score
   - FScore
+  - Checkpoint
+  - Mirtis
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Trap
   - 
   - 
   - 

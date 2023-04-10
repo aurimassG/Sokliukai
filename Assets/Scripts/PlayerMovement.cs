@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject FScore;
 
     private bool levelcomplete = false;
+
+    //public Vector3 respawnPoint;
 
 
     // Start is called before the first frame update
@@ -45,13 +48,13 @@ public class PlayerMovement : MonoBehaviour
 
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("speed", Mathf.Abs(horizontal));
-        
-        if(Input.GetButtonDown("Jump") && IsGrounded())
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             jumpsound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
-        if(Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
+        if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
         {
             jumpsound.Play();
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
@@ -68,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Flip()
     {
-        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
@@ -85,6 +88,11 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
 
+        //if (collision.tag == "Checkpoint")
+        //{
+        //    respawnPoint = transform.position;
+        //}
+
         if (collision.tag == "Finish" && !levelcomplete)
         {
             logic.computeScore();
@@ -92,6 +100,11 @@ public class PlayerMovement : MonoBehaviour
             Invoke("LygisBaigtas", 3f);
         }
     }
+
+    //public void Respawn()
+    //{
+    //    transform.position = respawnPoint;
+    //}
 
     private void LygisBaigtas()
     {

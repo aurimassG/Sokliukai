@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 13c5b4650cc002842b95fdd96f686334
+  - enabled: 1
     path: Assets/Scenes/1 lygis.unity
     guid: 9e628289404fb614b8e28b86e9df0c98
   - enabled: 1

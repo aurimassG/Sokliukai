@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public LogicScript logic;
     public GameObject Score;
     public GameObject FScore;
+    public Text TeamCredits;
 
     private bool levelcomplete = false;
 
@@ -98,7 +99,13 @@ public class PlayerMovement : MonoBehaviour
             logic.computeScore();
             levelcomplete = true;
             Invoke("LygisBaigtas", 3f);
+
         }
+        if(collision.tag == "Finish" && levelcomplete == false)  // cia trash kodas biski, bet veikia taip padarius, jeigu ateity bus bugu tai pakeisim
+        {
+            SceneManager.LoadScene("EndScreen");
+        }
+
     }
 
     //public void Respawn()

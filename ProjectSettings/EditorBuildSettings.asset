@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/2 lygis.unity
     guid: 6a0ceee25cbcdd14ca7d54dd4fd1a713
   - enabled: 1
+    path: Assets/Scenes/3 lygis.unity
+    guid: 9c2201020e2daa443b9d78a1e19fa980
+  - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: c310aded86a78f74bafe3bd6765c903f
   m_configObjects: {}

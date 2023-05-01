@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject FScore;
     public Text TeamCredits;
 
+    private bool doublejump;
+
     private bool levelcomplete = false;
 
     //public Vector3 respawnPoint;
@@ -50,10 +52,19 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("speed", Mathf.Abs(horizontal));
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if(IsGrounded() && !Input.GetButton("Jump"))
         {
-            jumpsound.Play();
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            doublejump = false;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (IsGrounded() || doublejump)
+            {
+                jumpsound.Play();
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                doublejump = !doublejump;
+            }
         }
         if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
         {

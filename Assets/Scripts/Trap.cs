@@ -7,15 +7,14 @@ public class Trap : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if(collision.tag == "Player")
-        //{
-        //    Debug.Log("Mirei nuo spasto");
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //}
+        
         if(collision.GetComponent<PlayerMovement>() != null)
         {
-            Debug.Log("Mirei nuo spasto");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            var healthComponent = collision.GetComponent<Health>();
+            healthComponent.TakeDamage(1);
+
+            //Debug.Log("Mirei nuo spasto");
+           // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

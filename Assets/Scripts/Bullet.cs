@@ -14,10 +14,13 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Mirei nuo kulkos");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            var hp = collision.gameObject.GetComponent<Health>();
+            if (hp != null)
+            {
+                hp.TakeDamage(1);
+            }
         }
     }
 }

@@ -97,6 +97,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "Finish" && !levelcomplete)
         {
             logic.computeScore();
+            logic.Stop();
+            logic.SetEndText();
             levelcomplete = true;
             Invoke("LygisBaigtas", 3f);
 

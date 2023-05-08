@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool levelcomplete = false;
 
-    //public Vector3 respawnPoint;
-
 
     // Start is called before the first frame update
     private void Start()
@@ -43,12 +41,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-
-        if (transform.position.y <= -20)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("speed", Mathf.Abs(horizontal));
 
@@ -100,10 +92,7 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
 
-        //if (collision.tag == "Checkpoint")
-        //{
-        //    respawnPoint = transform.position;
-        //}
+        
 
         if (collision.tag == "Finish" && !levelcomplete)
         {
@@ -118,11 +107,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
-    //public void Respawn()
-    //{
-    //    transform.position = respawnPoint;
-    //}
 
     private void LygisBaigtas()
     {

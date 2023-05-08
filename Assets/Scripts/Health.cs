@@ -7,10 +7,28 @@ public class Health : MonoBehaviour
 {
     public int maxHealt = 3;
     public int currentHealth;
-    // Start is called before the first frame update
+
+    private Vector3 respawnPoint;
+
     void Start()
     {
         currentHealth = maxHealt;
+    }
+    void Update()
+    {
+        if (transform.position.y <= -30)
+        {
+            TakeDamage(1);
+            Respawn();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+        }
     }
     public void TakeDamage(int amount)
     {
@@ -20,6 +38,11 @@ public class Health : MonoBehaviour
             Debug.Log("Pasibaige gyvybes");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    public void Respawn()
+    {
+        transform.position = respawnPoint;
     }
 
 }

@@ -9,7 +9,8 @@ public class Health : MonoBehaviour
     public int currentHealth;
 
     private Vector3 respawnPoint;
-
+    public GameManagerScript gameManager;
+    private bool isDead;
     void Start()
     {
         currentHealth = maxHealt;
@@ -33,10 +34,13 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && !isDead)
         {
+            isDead = true;
+            gameManager.gameOver();
+            Time.timeScale = 0;
             Debug.Log("Pasibaige gyvybes");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

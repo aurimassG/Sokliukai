@@ -14,8 +14,8 @@ Iš visų tipų mums priimtiniausias buvo Agile, jo metodu kas dvi savaites buvo
 * Grafikos dizaineris — Augustas Ladyginas IFA - 1/1
 * Koordinatorius — Rokas Kancleris IFD - 1
 
-## Aprašymas
-Žaidimą sukūrėme lengvai suprantamą, išvaizdų bei prieinamą visoms amžiaus grupėms. Žaidimą atidarius pasitiks ekranas, nuo kurio galėsime pradėti žaisti. Pagrindinis veikėjas, kuris galės judėti į šonus bei šokinėti, rinkdamas taškus turės išvengti kliūčių, nes kitaip teks pradėti nuo lygio pradžios. Žaidime bus keli lygiai, sudėlioti nuo lengviausio iki sunkiausio kuriuos pereiti bus galima tik pasiekus kitą pasaulio pusę. Žaidimo tematika – fantastinis pasaulis užvaldytas blogio, kuris, kiek įmanoma, bandys sutrukdyti pasiekti tikslo spęsdamas įvairius spąstus bei siųsdamas pavojingus priešus.
+## Techninė užduotis
+Projekto idėja - žaidimas. Žaidimą sukūrėme lengvai suprantamą, išvaizdų bei prieinamą visoms amžiaus grupėms. Žaidimą atidarius pasitiks ekranas, nuo kurio galėsime pradėti žaisti. Pagrindinis veikėjas, kuris galės judėti į šonus bei šokinėti, rinkdamas taškus turės išvengti kliūčių, nes kitaip teks pradėti žaidimą nuo pradžios. Žaidime bus keli lygiai, sudėlioti nuo lengviausio iki sunkiausio kuriuos pereiti bus galima tik pasiekus kitą pasaulio pusę. Žaidimo tematika – fantastinis pasaulis užvaldytas blogio, kuris, kiek įmanoma, bandys sutrukdyti pasiekti tikslo spęsdamas įvairius spąstus bei siųsdamas pavojingus priešus.
 
 ## Naudoti įrankiai
 * Žaidimo variklis — Unity

@@ -28,6 +28,6 @@ Projekto idėja - žaidimas. Žaidimą sukūrėme lengvai suprantamą, išvaizd�
 Su naudotojo vadovu galima susipažinti sukurtame [Wiki puslapyje](https://github.com/aurimassG/Sokliukai/wiki).
 
 ## Nuorodos projektinio darbo vystymosi eigos apžvalgai
-Jira: https://aurgal1.atlassian.net/jira/software/projects/PZ/boards/1/roadmap
+[Jira](https://aurgal1.atlassian.net/jira/software/projects/PZ/boards/1/roadmap)
 
-Parabol: https://action.parabol.co/team/mpEpzotWHS
+[Parabol](https://action.parabol.co/team/mpEpzotWHS)

@@ -7,7 +7,6 @@ public class HealthDisplay : MonoBehaviour
 {
     public int Health;
     public int MaxHealth;
-    public Animator animator;
 
     public Sprite emptyHearth;
     public Sprite fullHearth;

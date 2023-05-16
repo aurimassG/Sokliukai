@@ -7,8 +7,6 @@ public class Health : MonoBehaviour
 {
     public int maxHealt = 3;
     public int currentHealth;
-    public Animator animator;
-    public AudioSource audio;
 
     private Vector3 respawnPoint;
     public GameManagerScript gameManager;
@@ -35,21 +33,15 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(int amount)
     {
-            currentHealth -= amount;
-      
-            animator.SetTrigger("Hurt");
-            audio.Play();
-        
-        
-        if (currentHealth <= 0 && !isDead)
+        currentHealth -= amount;
+        if(currentHealth <= 0 && !isDead)
         {
-            
             isDead = true;
             gameManager.gameOver();
             Time.timeScale = 0;
             Debug.Log("Pasibaige gyvybes");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
     }
 
     public void Respawn()
